@@ -6,6 +6,8 @@ const categoryRoute = require("./routes/catogries");
 const connection= require("./config/db")
 const app=express()
 const cors=require("cors")
+app.use(express.static("images"));
+
 const mongoose = require("mongoose");
 const multer = require("multer");
 app.use(express.json())
