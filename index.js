@@ -7,7 +7,7 @@ const connection= require("./config/db")
 const app=express()
 const cors=require("cors")
 // app.use("/images", express.static("images"));
-
+const path = require("path");
 
 const mongoose = require("mongoose");
 const multer = require("multer");
