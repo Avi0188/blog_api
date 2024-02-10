@@ -6,28 +6,9 @@ const categoryRoute = require("./routes/catogries");
 const connection= require("./config/db")
 const app=express()
 const cors=require("cors")
-// app.use("/images", express.static("images"));
-const path = require("path");
-
-const mongoose = require("mongoose");
-const multer = require("multer");
-app.use(express.json())
-app.use("/images", express.static(path.join(__dirname, "/images")));
 
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, "images");
-    },
-    filename: (req, file, cb) => {
-      cb(null, req.body.name);
-    },
-  });
 
-  const upload = multer({ storage: storage });
-  app.post("/api/upload", upload.single("file"), (req, res) => {
-    res.status(200).json("File has been uploaded");
-  });
   app.use(cors())
   app.use("/api/auth", authRoute)
   app.use("/api/users", userRoute);
